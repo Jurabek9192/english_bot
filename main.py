@@ -9,7 +9,8 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import Command, CommandStart
 from aiogram.types import Message
-
+import os
+import logging
 from word_take import get_word
 from googletrans import Translator
 
@@ -33,6 +34,19 @@ async def command_start_handler(message: Message) -> None:
 async def help_handler(message: Message) -> None:
     text = f"{html.bold(message.from_user.full_name)}, bu bot so'zlar ma'nosini topadi va matnlarni tarjima qiladi."
     await message.answer(text)
+
+
+
+# Loglarni terminalda aniq ko'rish uchun
+logging.basicConfig(level=logging.INFO)
+
+TOKEN = os.getenv("TOKEN")
+
+if not TOKEN:
+    logging.error("XATOLIK: TOKEN muhit o'zgaruvchisi topilmadi!")
+    exit(1) # Botni xato bilan to'xtatish
+else:
+    logging.info("TOKEN muvaffaqiyatli yuklandi.")
 
 
 @dp.message()
