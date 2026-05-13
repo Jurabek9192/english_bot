@@ -69,7 +69,7 @@ async def changer(message: Message) -> None:
                     await message.reply(f"So'z: {message.text}\nMa'nosi: {meaning['definitions']}")
 
                     if meaning.get('audio'):
-                    await message.reply_voice(voice=meaning['audio'], caption="Talaffuz")
+                        await message.reply_voice(voice=meaning['audio'], caption="Talaffuz")
                 else:
                     await message.reply("Topilmadi.")
     except Exception as e:
