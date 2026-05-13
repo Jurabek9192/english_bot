@@ -10,15 +10,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import Command, CommandStart
 from aiogram.types import Message
-
-
-try:
-    from word_take import get_word
-except ImportError:
-    logging.error("XATOLIK: word_take.py fayli topilmadi!")
-    get_word = None
-
-from googletrans import Translator
+ from word_take import get_word
 
 load_dotenv()
 
@@ -30,6 +22,16 @@ if not TOKEN:
 
 dp = Dispatcher()
 translator = Translator()
+
+try:
+    from word_take import get_word
+except ImportError:
+    logging.error("XATOLIK: word_take.py fayli topilmadi!")
+    get_word = None
+
+from googletrans import Translator
+
+
 
 
 async def handle(request):
