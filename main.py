@@ -11,6 +11,7 @@ from aiogram.enums import ParseMode
 from aiogram.filters import Command, CommandStart
 from aiogram.types import Message
 from word_take import get_word
+from googletrans import Translator
 
 load_dotenv()
 
